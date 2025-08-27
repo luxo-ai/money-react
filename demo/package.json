@@ -1,0 +1,26 @@
+{
+  "name": "demo",
+  "packageManager": "yarn@4.9.4",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
+    "@types/node": "24.3.0",
+    "@types/react": "^19.1.11",
+    "@types/react-dom": "^19.1.8",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "money-react": "workspace:^",
+    "next": "^15.5.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}

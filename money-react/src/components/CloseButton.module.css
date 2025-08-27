@@ -1,0 +1,15 @@
+.root {
+  padding: 0.25rem;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  color: var(--money-react-close-foreground, rgba(19, 19, 19, 0.63));
+
+  :hover {
+    border-radius: 50vh;
+    background: var(--money-react-close-background, rgba(0, 0, 0, 0.045));
+  }
+}
+
+.root > svg {
+  fill: currentColor;
+}

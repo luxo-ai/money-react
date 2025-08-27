@@ -1,0 +1,47 @@
+{
+  "name": "money-react",
+  "packageManager": "yarn@4.9.4",
+  "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js"
+    }
+  },
+  "scripts": {
+    "types:css": "tcm src",
+    "types:css:watch": "tcm src --watch",
+    "prebuild": "yarn types:css && yarn clean",
+    "build": "rollup -c",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/react": "^19",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "react": "^19.1.1",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.49.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "react": ">=17 <19"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ]
+}

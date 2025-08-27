@@ -1,4 +1,18 @@
 {
-  "name": "money",
-  "packageManager": "yarn@4.9.4"
+  "name": "money-react-monorepo",
+  "private": true,
+  "packageManager": "yarn@4.9.4",
+  "scripts": {
+    "add:money": "yarn workspace money-react add",
+    "add:demo": "yarn workspace demo add",
+    "remove:money": "yarn workspace money-react remove",
+    "remove:demo": "yarn workspace demo remove",
+    "build:money": "yarn workspace money-react build",
+    "build:demo": "yarn workspace demo build",
+    "dev:demo": "yarn workspace demo dev"
+  },
+  "workspaces": [
+    "money-react",
+    "demo"
+  ]
 }
