@@ -1,8 +1,8 @@
 .root {
-  display: flex;
+  display: inline-flex;
   gap: 0.5rem;
-  justify-content: space-between;
   align-items: center;
+  padding: 0 0.25rem;
 }
 
 .scrollable {
@@ -10,44 +10,36 @@
   min-width: 2rem;
   overflow: scroll;
   scrollbar-width: thin;
+  background: black;
 }
 
 .input {
-  --money-input-font-size: 2.5rem;
+  background: rgb(151, 193, 255);
 
-  --money-input-column-gap: 0.25rem;
+  display: inline-flex;
+  align-items: center;
 
-  --money-input-padding-horizontal: 0.25rem;
-  --money-input-padding-vertical: 0.125rem;
-
-  --money-input-currency-font-size: calc(var(--money-input-font-size) * 0.5);
-
-  --money-input-input-width: calc(
-    var(--money-input-money-input-width-scale, 1) * 1ch +
-      var(--money-input-padding-horizontal) * 2 + var(--money-input-column-gap) +
-      var(--money-input-currency-font-size)
-  );
-
-  display: flex;
-  column-gap: var(--money-input-column-gap);
+  font-size: 2.5rem;
   border-radius: 0.25rem;
-
-  /* font-family: var(--money-input-font-family-regular); */
-  font-size: var(--money-input-font-size);
-
-  padding: var(--money-input-padding-vertical)
-    var(--money-input-padding-horizontal);
-
-  width: var(--money-input-input-width);
 }
 
-.input .currency {
+.input .moneySizer {
+  position: absolute;
+  visibility: hidden;
+  white-space: pre;
+  font: inherit;
+  letter-spacing: inherit;
+  font-variant-numeric: inherit;
+  /* keep it out of flow so it doesn't affect layout */
+}
+
+.root .currency {
   font-size: var(--money-input-currency-font-size);
   vertical-align: top;
   margin-top: 0.5rem;
 }
 
-.input .currency.textSoft {
+.root .currency.textSoft {
   color: var(--money-input-secondary-color, rgba(19, 19, 19, 0.63));
 }
 

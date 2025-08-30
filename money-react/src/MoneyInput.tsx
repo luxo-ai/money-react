@@ -4,6 +4,7 @@ import styles from "./MoneyInput.module.css";
 import { type CloseButtonProps } from "@components/CloseButton";
 import type { WithAriaLabelProps } from "@components/types";
 import { classes } from "./helpers/classes";
+import { useSizeDigits } from "./hooks/useSizeDigits";
 
 const MAX_LENGTH = 30;
 
@@ -34,7 +35,7 @@ export const MoneyInput = ({
   ...props
 }: MoneyInputProps) => {
   const ref = useRef<HTMLInputElement>(null);
-  const inputWidthScale = value ? String(value).length : 1;
+  const widths = useSizeDigits({ ref });
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const valueString = String(e.currentTarget.value || "");
@@ -77,8 +78,12 @@ export const MoneyInput = ({
     e.preventDefault();
   };
 
+  const val = value || "0";
+
   const style = {
-    "--money-input-width-scale": inputWidthScale,
+    width: val
+      .split("")
+      .reduce((acc, char) => acc + ((widths as any)[char] || 0), 0),
   } as React.CSSProperties;
 
   const currencyStyle = classes(
@@ -102,8 +107,9 @@ export const MoneyInput = ({
   }, [children, onChange]);
 
   return (
-    <div className={classes(styles.root, className)}>
-      <div className={styles.scrollable}>
+    <div>
+      <div className={classes(styles.root, className)}>
+        <span className={currencyStyle}>{currencySymbol}</span>
         <div
           style={style}
           className={classes(
@@ -113,7 +119,6 @@ export const MoneyInput = ({
             className
           )}
         >
-          <span className={currencyStyle}>{currencySymbol}</span>
           <input
             {...props}
             name={name}
@@ -128,8 +133,8 @@ export const MoneyInput = ({
             onKeyDown={handleKeyDown}
           />
         </div>
+        {value && value.length > 0 && closeButton}
       </div>
-      {value && value.length > 0 && closeButton}
     </div>
   );
 };

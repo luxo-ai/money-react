@@ -19,6 +19,7 @@
     "types:css:watch": "tcm src --watch",
     "prebuild": "yarn types:css && yarn clean",
     "build": "rollup -c",
+    "build:dev": "rollup -c -w",
     "clean": "rimraf dist"
   },
   "devDependencies": {
@@ -27,16 +28,19 @@
     "@rollup/plugin-typescript": "^12.1.4",
     "@types/react": "^19",
     "autoprefixer": "^10.4.21",
+    "path": "^0.12.7",
     "postcss": "^8.5.6",
     "react": "^19.1.1",
     "rimraf": "^6.0.1",
     "rollup": "^4.49.0",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-postcss": "^4.0.2",
+    "tcm": "^1.0.15",
     "tslib": "^2.8.1",
     "typescript": "^5.9.2"
   },
   "peerDependencies": {
-    "react": ">=17 <19"
+    "react": ">=17 <20"
   },
   "files": [
     "dist"

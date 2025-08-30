@@ -1,5 +1,5 @@
 {
-  "name": "demo",
+  "name": "demo-next",
   "packageManager": "yarn@4.9.4",
   "scripts": {
     "dev": "next dev",

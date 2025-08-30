@@ -4,15 +4,20 @@
   "packageManager": "yarn@4.9.4",
   "scripts": {
     "add:money": "yarn workspace money-react add",
-    "add:demo": "yarn workspace demo add",
+    "add:demo-next": "yarn workspace demo-next add",
+    "add:demo-vite": "yarn workspace demo-vite add",
     "remove:money": "yarn workspace money-react remove",
-    "remove:demo": "yarn workspace demo remove",
+    "remove:demo-next": "yarn workspace demo-next remove",
+    "remove:demo-vite": "yarn workspace demo-vite remove",
     "build:money": "yarn workspace money-react build",
-    "build:demo": "yarn workspace demo build",
-    "dev:demo": "yarn workspace demo dev"
+    "build:demo-next": "yarn workspace demo-next build",
+    "build:demo-vite": "yarn workspace demo-vite build",
+    "dev:demo-next": "yarn workspace demo-next dev",
+    "dev:demo-vite": "yarn workspace demo-vite dev"
   },
   "workspaces": [
     "money-react",
-    "demo"
+    "demo-next",
+    "demo-vite"
   ]
 }
